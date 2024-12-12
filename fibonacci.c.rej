@@ -1,22 +1,3 @@
-diff --git a/config.def.h b/config.def.h
-index cca37df..91b91aa 100644
---- a/config.def.h
-+++ b/config.def.h
-@@ -29,1 +29,2 @@
-+#include "fibonacci.c"
- static const Layout layouts[] = {
-@@ -34,3 +35,5 @@
-+ 	{ "[@]",      spiral },
-+ 	{ "[\\]",      dwindle },
- };
- 
- /* key definitions */
-diff --git a/fibonacci.c b/fibonacci.c
-new file mode 100644
-index 0000000..fce0a57
---- /dev/null
-+++ b/fibonacci.c
-@@ -0,0 +1,66 @@
 +void
 +fibonacci(Monitor *mon, int s) {
 +	unsigned int i, n, nx, ny, nw, nh;
