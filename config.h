@@ -61,10 +61,11 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont}
 static const char *termcmd[]  = { "st", NULL };
 
 /*pipewire-audio*/
-static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
-static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
-static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
-
+static const char *upvol[]      = { "wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
+static const char *downvol[]    = { "wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
+static const char *mutevol[]    = { "wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
+static const char *brup[] = { "brightnessctl", 		"set", 			"5%+", 						NULL };
+static const char *brdown[] = { "brightnessctl", 	"set", 			"5%-", 						NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -96,6 +97,8 @@ static const Key keys[] = {
 	{ 0,			  XF86XK_AudioLowerVolume, spawn,		   {.v = downvol } },
 	{ 0,			  XF86XK_AudioMute, 	   spawn,		   {.v = mutevol } },
 	{ 0,			  XF86XK_AudioRaiseVolume, spawn, 		   {.v = upvol   } },
+	{ 0, 			  XF86XK_MonBrightnessUp,  spawn,          {.v = brup	 } },
+    { 0, 			  XF86XK_MonBrightnessDown,spawn,          {.v = brdown	 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
