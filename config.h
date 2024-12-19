@@ -13,7 +13,6 @@ static const char dmenufont[]       = "JetBrains Mono:size=16";
 #include <X11/XF86keysym.h>
 
 /* tagging */
-/* tagging */
 static const char *tags[] = { "", "","", "", "'_'", "+_+", "^_^", "*_*", ":)" };
 
 static const Rule rules[] = {
@@ -61,6 +60,12 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont};
 static const char *termcmd[]  = { "st", NULL };
 
+/*pipewire-audio*/
+static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
+static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
+static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
+
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_slash,  spawn,          {.v = dmenucmd } },
@@ -88,6 +93,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ 0,			  XF86XK_AudioLowerVolume, spawn,		   {.v = downvol } },
+	{ 0,			  XF86XK_AudioMute, 	   spawn,		   {.v = mutevol } },
+	{ 0,			  XF86XK_AudioRaiseVolume, spawn, 		   {.v = upvol   } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
