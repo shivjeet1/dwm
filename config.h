@@ -6,8 +6,8 @@ static const unsigned int gappx     = 8;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrains Mono:size=16", "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
-static const char dmenufont[]       = "JetBrains Mono:size=16";
+static const char *fonts[]          = { "Ubuntu:size=15", "Symbols Nerd Font Mono:style=Regular:size=16:antialias=true:autohint=true", "Noto Color Emoji:style=Regular:pixelsize=16:antialias=true:autohint=true"};
+static const char dmenufont[]       = "Ubuntu:size=15";
 
 #include "/home/shiv/.cache/wal/colors-wal-dwm.h"
 #include <X11/XF86keysym.h>
