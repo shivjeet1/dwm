@@ -40,14 +40,14 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
- 	{ "[@]",      spiral },
- 	{ "[\\]",      dwindle }, //mod+shift+R
+	{ "[@]",      spiral },
+	{ "[\\]",      dwindle }, //mod+shift+R
 };
 
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
@@ -64,8 +64,8 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *upvol[]      = { "wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
 static const char *downvol[]    = { "wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
 static const char *mutevol[]    = { "wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
-static const char *brup[] = { "brightnessctl", 		"set", 			"5%+", 						NULL };
-static const char *brdown[] = { "brightnessctl", 	"set", 			"5%-", 						NULL };
+static const char *brup[] = { "brightnessctl", 		"set", 			"5%+",			NULL };
+static const char *brdown[] = { "brightnessctl", 	"set", 			"5%-",			NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -100,7 +100,7 @@ static const Key keys[] = {
 	{ 0,			  XF86XK_AudioMute, 	   spawn,		   {.v = mutevol } },
 	{ 0,			  XF86XK_AudioRaiseVolume, spawn, 		   {.v = upvol   } },
 	{ 0, 			  XF86XK_MonBrightnessUp,  spawn,          {.v = brup	 } },
-    { 0, 			  XF86XK_MonBrightnessDown,spawn,          {.v = brdown	 } },
+	{ 0, 			  XF86XK_MonBrightnessDown,spawn,          {.v = brdown	 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
